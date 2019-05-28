@@ -14,3 +14,21 @@
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
+
+$router->group(['prefix' => 'authors'], function () use ($router) {
+    $router->get('/', "AuthorController@index");
+    $router->post('/', "AuthorController@store");
+    $router->get('/{id}', "AuthorController@show");
+    $router->put('/{id}', "AuthorController@update");
+    $router->patch('/id}', "AuthorController@update");
+    $router->delete('/{id}', "AuthorController@destroy");
+});
+
+$router->group(['prefix' => 'books'], function () use ($router) {
+    $router->get('/', "BookController@index");
+    $router->post('/', "BookController@store");
+    $router->get('/{id}', "BookController@show");
+    $router->put('/{id}', "BookController@update");
+    $router->patch('/id}', "BookController@update");
+    $router->delete('/{id}', "BookController@destroy");
+});
