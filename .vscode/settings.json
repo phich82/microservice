@@ -1,0 +1,15 @@
+{
+    "sqltools.connections": [
+        {
+            "askForPassword": false,
+            "connectionTimeout": 30,
+            "database": "authors_lumen",
+            "dialect": "MySQL",
+            "name": "MySQL",
+            "password": "20091982",
+            "port": 3306,
+            "server": "127.0.0.1",
+            "username": "phich82"
+        }
+    ]
+}
