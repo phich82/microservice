@@ -15,7 +15,7 @@ $router->get('/', function () use ($router) {
     return $router->app->version();
 });
 
-$router->group(['middleware' => 'client.credentials'], function () use ($router) {
+$router->group(['middleware' => 'client.credentials', 'prefix' => env('PREFIX_API_VERSION')], function () use ($router) {
     // Routes for the authors microsrvice
     $router->group(['prefix' => 'authors'], function () use ($router) {
         $router->get('/', "AuthorController@index");
