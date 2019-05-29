@@ -16,6 +16,13 @@ class BookService
     public $baseUri;
 
     /**
+     * The secret for the books service
+     *
+     * @var string
+     */
+    public $secret;
+
+    /**
      * __construct
      *
      * @return void
@@ -23,6 +30,7 @@ class BookService
     public function __construct()
     {
         $this->baseUri = config('services.books.base_uri');
+        $this->secret = config('services.books.secret');
     }
 
     /**
