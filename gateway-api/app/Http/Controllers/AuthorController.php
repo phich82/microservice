@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Traits\ApiResponse;
+use App\Services\AuthorService;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use App\Services\AuthorService;
 
 class AuthorController extends Controller
 {
@@ -39,17 +39,35 @@ class AuthorController extends Controller
     }
 
     /**
-     * Save the author
+     * Get the author by id
+     *
+     * @param  int $id
      *
      * @return \Illuminate\Http\Response
      */
+    public function show($id)
+    {
+        return $this->success_api($this->authorService->author($id));
+    }
+
+    /**
+     * Save the author
+     *
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
+     *
+     * @return string
+     */
     public function store(Request $request)
     {
-        return $this->success_api($this->authorService->create($request->all()), Response::HTTP_CREATED);
+        return $this->success_api($this->authorService->create($request->all(), Response::HTTP_CREATED));
     }
 
     /**
      * Update the author
+     *
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      *
      * @return \Illuminate\Http\Response
      */
@@ -59,16 +77,9 @@ class AuthorController extends Controller
     }
 
     /**
-     * Show the author by id
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        return $this->success_api($this->authorService->author($id));
-    }
-    /**
      * Delete the author by id
+     *
+     * @param  int $id
      *
      * @return \Illuminate\Http\Response
      */

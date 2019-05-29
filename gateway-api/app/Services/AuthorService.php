@@ -36,21 +36,7 @@ class AuthorService
     }
 
     /**
-     * create
-     *
-     * @param  array $data
-     *
-     * @return string
-     */
-    public function create($data)
-    {
-        return $this->post('/authors', $data);
-    }
-
-    /**
      * Get the author by id
-     *
-     * @param  int $id
      *
      * @return string
      */
@@ -60,20 +46,32 @@ class AuthorService
     }
 
     /**
-     * Update the author by id
+     * Create new author
      *
-     * @param  array $data
+     * @param  array $params
+     *
+     * @return string
+     */
+    public function create($params)
+    {
+        return $this->post("/authors", $params);
+    }
+
+    /**
+     * Update the author
+     *
+     * @param  array $params
      * @param  int $id
      *
      * @return string
      */
-    public function update($data, $id)
+    public function update($params, $id)
     {
-        return $this->put("/authors/{$id}", $data);
+        return $this->put("/authors/{$id}", $params);
     }
 
     /**
-     * Delete the author by id
+     * Delete the author
      *
      * @param  int $id
      *
@@ -85,7 +83,7 @@ class AuthorService
     }
 
     /**
-     * Delete the author by id
+     * Delete the author
      *
      * @param  int $id
      *

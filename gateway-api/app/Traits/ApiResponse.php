@@ -35,7 +35,7 @@ trait ApiResponse
     /**
      * Build the error message
      *
-     * @param  string|array $message
+     * @param  string|array $data
      * @param  int $code
      *
      * @return \Illuminate\Http\JsonResponse

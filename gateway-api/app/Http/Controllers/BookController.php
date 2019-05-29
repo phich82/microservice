@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Traits\ApiResponse;
+use App\Services\BookService;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use App\Services\BookService;
 
 class BookController extends Controller
 {
@@ -29,52 +29,62 @@ class BookController extends Controller
     }
 
     /**
-     * Show authors list
+     * Get the books list
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-
+        return $this->success_api($this->bookService->books());
     }
 
     /**
-     * Save the author
+     * Get the author by id
      *
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-
-    }
-
-    /**
-     * Update the author
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-
-    }
-
-    /**
-     * Show the author by id
+     * @param  int $id
      *
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-
+        return $this->success_api($this->bookService->book($id));
     }
 
     /**
-     * Delete the author by id
+     * Save the author
+     *
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        return $this->success_api($this->bookService->create($request->all(), Response::HTTP_CREATED));
+    }
+
+    /**
+     * Update the author
+     *
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        return $this->success_api($this->bookService->update($request->all(), $id));
+    }
+
+    /**
+     * Delete the author
+     *
+     * @param  int $id
      *
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-
+        return $this->success_api($this->bookService->destroy($id));
     }
 }

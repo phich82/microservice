@@ -30,7 +30,6 @@ trait ExternalService
     /**
      * Send the request to any services by GET method
      *
-     * @param  string $method
      * @param  string $requestUrl
      * @param  array $params
      * @param  array $headers
@@ -45,7 +44,6 @@ trait ExternalService
     /**
      * Send the request to any services by POST method
      *
-     * @param  string $method
      * @param  string $requestUrl
      * @param  array $params
      * @param  array $headers
@@ -60,7 +58,6 @@ trait ExternalService
     /**
      * Send the request to any services by PUT method
      *
-     * @param  string $method
      * @param  string $requestUrl
      * @param  array $params
      * @param  array $headers
@@ -75,7 +72,6 @@ trait ExternalService
     /**
      * Send the request to any services by PATCH method
      *
-     * @param  string $method
      * @param  string $requestUrl
      * @param  array $params
      * @param  array $headers
@@ -90,7 +86,6 @@ trait ExternalService
     /**
      * Send the request to any services by DELETE method
      *
-     * @param  string $method
      * @param  string $requestUrl
      * @param  array $params
      * @param  array $headers
